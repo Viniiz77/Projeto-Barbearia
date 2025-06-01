@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-barbearia
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 20081980Vini@
+      MYSQL_DATABASE: barbearia
+    ports:
+      - "3307:3306"
+    networks:
+      - barbearia-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: barberia-project
+    container_name: spring-barbearia
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+        SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/barbearia
+        SPRING_DATASOURCE_USERNAME: root
+        SPRING_DATASOURCE_PASSWORD: 20081980Vini@
+        SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+        SPRING_JPA_HIBERNATE_DDL_AUTO: update
+        SPRING_JPA_SHOW_SQL: "true"
+        SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
+    networks:
+      - barbearia-network
+
+networks:
+  barbearia-network:
+    driver: bridge
