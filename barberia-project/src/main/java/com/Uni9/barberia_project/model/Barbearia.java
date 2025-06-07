@@ -28,6 +28,9 @@ public class Barbearia {
     @Column(name = "telefone", nullable = false)
     private String telefone;
 
+    @Column(columnDefinition = "TEXT")
+    private String descricao;
+
     @CreationTimestamp
     @Column(name = "criado_em", updatable = false)
     private LocalDateTime criadoEm;
@@ -42,10 +45,11 @@ public class Barbearia {
     public Barbearia(){
     }
 
-    public Barbearia(String nome, String endereco, String telefone) {
+    public Barbearia(String nome, String endereco, String telefone, String descricao) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
+        this.descricao = descricao;
     }
 
 //    public void addServico(Servico servico) {

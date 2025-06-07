@@ -2,7 +2,6 @@ package com.Uni9.barberia_project.controller;
 
 import com.Uni9.barberia_project.dto.*;
 import com.Uni9.barberia_project.service.BarbeariaService;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,6 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/barbearias")
 
 public class BarbeariaController {
@@ -41,23 +41,21 @@ public class BarbeariaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<BarbeariaResponseDto> buscarPorId(@PathVariable Integer id) {
-        try {
             BarbeariaResponseDto barbearia = barbeariaService.buscarPorId(id);
             return ResponseEntity.ok(barbearia);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
+    }
+
+    @GetMapping("/por-usuario/{usuarioId}")
+    public ResponseEntity<BarbeariaResponseDto> buscarBarbeariaPorUsuarioId(@PathVariable Integer usuarioId) {
+        BarbeariaResponseDto barbearia = barbeariaService.buscarBarbeariaPorUsuarioId(usuarioId);
+        return ResponseEntity.ok(barbearia);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<BarbeariaResponseDto> atualizarBarbearia(@PathVariable Integer id,
                                                                    @RequestBody @Valid UpdateBarbeariaDto dto) {
-        try{
             BarbeariaResponseDto barbeariaAtualizada = barbeariaService.atualizarBarbearia(id, dto);
             return ResponseEntity.ok(barbeariaAtualizada);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
     }
 
     @DeleteMapping("/{id}")

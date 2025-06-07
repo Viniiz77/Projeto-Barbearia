@@ -32,8 +32,8 @@ public class Usuario {
     private TipoUsuario tipo;
 
     //Relacionamento com barbearia: um usuário pode ou não estar associado a uma barbearia
-    @ManyToOne
-    @JoinColumn(name= "barbearia_id")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name= "barbearia_id", referencedColumnName = "id", unique = true)
     private Barbearia barbearia;
 
     @CreationTimestamp

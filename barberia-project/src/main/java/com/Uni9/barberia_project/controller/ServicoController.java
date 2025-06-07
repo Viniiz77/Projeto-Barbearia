@@ -1,9 +1,7 @@
 package com.Uni9.barberia_project.controller;
 
 import com.Uni9.barberia_project.dto.*;
-import com.Uni9.barberia_project.model.Servico;
 import com.Uni9.barberia_project.service.ServicoService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -14,6 +12,7 @@ import java.util.List;
 import java.net.URI;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/servicos")
 public class ServicoController {
 
@@ -25,12 +24,12 @@ public class ServicoController {
 
     @PostMapping
     public ResponseEntity<ServicoResponseDto> criarServico(@RequestBody @Valid CreateServicoDto dto) {
-        ServicoResponseDto nossoServico = servicoService.criarServico(dto);
+        ServicoResponseDto novoServico = servicoService.criarServico(dto);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}").buildAndExpand(nossoServico.id()).toUri();
+                .path("/{id}").buildAndExpand(novoServico.id()).toUri();
 
-        return ResponseEntity.created(location).body(nossoServico);
+        return ResponseEntity.created(location).body(novoServico);
     }
 
     @GetMapping
@@ -39,30 +38,37 @@ public class ServicoController {
         return ResponseEntity.ok(servicos);
     }
 
+    @GetMapping("/por-barbearia/{barbeariaId}")
+    public ResponseEntity<List<ServicoResponseDto>> listarServicosPorBarbearia(@PathVariable Integer barbeariaId) {
+        List<ServicoResponseDto> servicos = servicoService.listarServicosPorBarbearia(barbeariaId);
+        return ResponseEntity.ok(servicos);
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<ServicoResponseDto> buscarServicoPorId(@PathVariable Integer id) {
-        try {
+    public ResponseEntity<ServicoResponseDto> buscarServico(@PathVariable Integer id) {
             ServicoResponseDto servico =  servicoService.buscarServicoPorId(id);
             return ResponseEntity.ok(servico);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ServicoResponseDto> atualizarServicoPorId(@PathVariable Integer id,
+    public ResponseEntity<ServicoResponseDto> atualizarServico(@PathVariable Integer id,
                                                       @RequestBody @Valid UpdateServicoDto dto) {
-        try {
-            ServicoResponseDto servicoAtualizado = servicoService.atualizarServicoPorId(id, dto);
+            ServicoResponseDto servicoAtualizado = servicoService.atualizarServico(id, dto);
             return ResponseEntity.ok(servicoAtualizado);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletarPorId(@PathVariable Integer id) {
-        servicoService.deletarPorId(id);
+    public void deletarServico(@PathVariable Integer id) {
+        servicoService.deletarServico(id);
     }
 }
+
+
+
+
+
+
+
+
+

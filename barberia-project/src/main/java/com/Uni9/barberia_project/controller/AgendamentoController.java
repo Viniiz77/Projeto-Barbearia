@@ -2,7 +2,6 @@ package com.Uni9.barberia_project.controller;
 
 import com.Uni9.barberia_project.dto.*;
 import com.Uni9.barberia_project.service.AgendamentoService;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,7 @@ import java.util.List;
 
 // Diz pro Spring que essa classe é um controlador REST e que ela vai responder na URL "/agendamento"
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/agendamentos")
 public class AgendamentoController {
 
@@ -40,36 +40,39 @@ public class AgendamentoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AgendamentoResponseDto>> listarTodos() {
-        List<AgendamentoResponseDto> lista = agendamentoService.listarTodos();
+    public ResponseEntity<List<AgendamentoResponseDto>> listarTodosAgendamentos() {
+        List<AgendamentoResponseDto> lista = agendamentoService.listarTodosAgendamentos();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<AgendamentoResponseDto> buscarPorId(@PathVariable Integer id) {
-        try {
             AgendamentoResponseDto dto = agendamentoService.buscarPorId(id);
             return ResponseEntity.ok(dto);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<AgendamentoResponseDto> atualizarPorId(@PathVariable Integer id,
-                                                                 @RequestBody @Valid UpdateAgendamentoDto dto) {
-       try {
-           AgendamentoResponseDto agendamentoAtualizado = agendamentoService.atualizarPorId(id, dto);
-           return ResponseEntity.ok(agendamentoAtualizado);
-       } catch (EntityNotFoundException e) {
-           return ResponseEntity.notFound().build();
-       }
+    @GetMapping("/por-barbeiro/{barbeiroId}")
+    public ResponseEntity<List<AgendamentoResponseDto>> listarAgendamentosPorBarbeiro(@PathVariable Integer barbeiroId) {
+        List<AgendamentoResponseDto> agendamentos = agendamentoService.listarAgendamentosPorBarbeiro(barbeiroId);
+        return ResponseEntity.ok(agendamentos);
+    }
+
+    @GetMapping("/por-cliente/{clienteId}")
+    public ResponseEntity<List<AgendamentoResponseDto>> listarAgendamentosPorCliente(@PathVariable Integer clienteId) {
+        List<AgendamentoResponseDto> agendamentos = agendamentoService.listarAgendamentosPorCliente(clienteId);
+        return ResponseEntity.ok(agendamentos);
+    }
+
+    @PutMapping("/{id}/status")
+    public ResponseEntity<AgendamentoResponseDto> atualizarStatusAgendamento(@PathVariable Integer id, @Valid @RequestBody UpdateAgendamentoDto dto) {
+        AgendamentoResponseDto agendamentoAtualizado = agendamentoService.atualizarStatusAgendamento(id, dto);
+        return ResponseEntity.ok(agendamentoAtualizado);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletarPorId(@PathVariable Integer id) {
-        agendamentoService.deletarPorId(id);
+    public void deletarAgendamento(@PathVariable Integer id) {
+        agendamentoService.deletarAgendamento(id);
     }
 }
 

@@ -12,6 +12,7 @@ public record BarbeariaResponseDto(
         String nome,
         String endereco,
         String telefone,
+        String descricao,
         LocalDateTime criadoEm,
         LocalDateTime atualizadoEm,
         List<Servico> servicos
@@ -25,6 +26,7 @@ public record BarbeariaResponseDto(
                 barbearia.getNome(),
                 barbearia.getEndereco(),
                 barbearia.getTelefone(),
+                barbearia.getDescricao(),
                 barbearia.getCriadoEm(),
                 barbearia.getAtualizadoEm(),
                 servicosCarregados

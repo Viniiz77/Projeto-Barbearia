@@ -1,5 +1,6 @@
 package com.Uni9.barberia_project.repository;
 
+import com.Uni9.barberia_project.model.Barbearia;
 import com.Uni9.barberia_project.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,4 +16,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     boolean existsByEmail(String email);
 
     boolean existsByTelefone(String telefone);
+
+    Optional<Usuario> findByBarbearia(Barbearia barbearia);
 }

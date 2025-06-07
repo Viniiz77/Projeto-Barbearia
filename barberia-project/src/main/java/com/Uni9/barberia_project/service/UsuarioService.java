@@ -9,6 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -158,5 +159,29 @@ public class UsuarioService {
             throw new EntityNotFoundException("Usuário não encontrado.");
         }
         usuarioRepository.deleteById(id);
+    }
+
+    public UsuarioResponseDto login(LoginRequestDto loginDto) {
+        Usuario usuario = usuarioRepository.findByEmail(loginDto.email())
+                .orElseThrow(() -> new IllegalArgumentException("Email ou senha inválidos."));
+
+        if(!usuario.getSenha().equals(loginDto.senha())) {
+            throw new IllegalArgumentException("Email ou senha inválidos.");
+        }
+
+        if(!usuario.getTipo().equals(loginDto.tipo())) {
+            throw new IllegalArgumentException("Acesso negado para este tipo de usuário.");
+        }
+
+        return new UsuarioResponseDto(
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getEmail(),
+                usuario.getTelefone(),
+                usuario.getTipo(),
+                usuario.getBarbearia() != null ? usuario.getBarbearia().getNome() : null,
+                usuario.getCriadoEm(),
+                usuario.getAtualidoEm()
+        );
     }
 }
