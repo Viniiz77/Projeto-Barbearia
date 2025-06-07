@@ -1,0 +1,231 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #2C2C2C; /* Fundo principal escuro */
+    color: #FFFFFF;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Cabeçalho (similar ao do PainelBarbeiro) --- */
+header {
+    background-color: #6d6d6d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 20px;
+}
+
+header nav a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #d4d4d4;
+}
+
+/* --- Seção Principal --- */
+.detalhes-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    margin-top: 70px; /* Espaço para o cabeçalho fixo */
+    background-color: #3e3c4a;
+    min-height: calc(100vh - 70px);
+    color: #f0f0f0;
+}
+
+.info-barbearia-cliente,
+.secao-agendamento {
+    background-color: #6d6d6d;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-barbearia-cliente {
+    flex: 2; /* Ocupa mais espaço */
+    min-width: 350px;
+    max-width: 700px;
+}
+
+.secao-agendamento {
+    flex: 1; /* Ocupa menos espaço */
+    min-width: 300px;
+    max-width: 400px;
+}
+
+/* --- Títulos --- */
+h1 {
+    color: #FFFFFF;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: #f0f0f0;
+    font-size: 1.8em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+/* --- Detalhes da Barbearia --- */
+.info-barbearia-cliente p {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #e0e0e0;
+}
+
+.divisor {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 25px 0;
+}
+
+/* --- Serviços Disponíveis (Cards) --- */
+#containerServicosDisponiveis {
+    margin-top: 15px;
+}
+
+.servico-cliente-card {
+    background-color: #BFB9B9; /* Fundo claro para o card de serviço */
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.servico-cliente-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+    color: #2C2C2C;
+}
+
+.servico-cliente-card p {
+    margin: 3px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+/* --- Formulário de Agendamento --- */
+#formAgendamento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#formAgendamento label {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#formAgendamento input,
+#formAgendamento select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #BFB9B9;
+    border-radius: 8px;
+    background-color: #BFB9B9;
+    color: #333;
+    font-size: 1em;
+}
+
+#formAgendamento input:focus,
+#formAgendamento select:focus {
+    border-color: #5292FF;
+    box-shadow: 0 0 0 3px rgba(82, 146, 255, 0.5);
+    outline: none;
+}
+
+.botao-agendar {
+    background-color: #5292FF; /* Azul primário */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    align-self: flex-end;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.botao-agendar:hover {
+    background-color: #4178CC;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    .detalhes-main {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .info-barbearia-cliente,
+    .secao-agendamento {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detalhes-main {
+        padding: 15px;
+    }
+
+    .info-barbearia-cliente,
+    .secao-agendamento {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .botao-agendar {
+        width: 100%;
+        text-align: center;
+    }
+}

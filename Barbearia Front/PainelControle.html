@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/PainelControle.css">
+    <title>Painel do Barbeiro - Agendamentos Barber</title>
+</head>
+<body>
+      <header>
+        <div class="logo">
+            <img src="CSS/assets/logo.svg" alt="Logo Agendamentos" />
+        </div>
+        <nav>
+            <a href="#" id="linkPainelBarbeiro">Meu Painel</a>
+            <a href="#" id="linkMeusAgendamentosBarbeiro">Meus Agendamentos</a>
+            <a href="#" id="linkSair">Sair</a>
+        </nav>
+    </header>
+
+    <main class="painel-barbeiro-main">
+        <section class="secao-barbearia-info">
+            <div class="cabecalho-barbearia">
+                <h1 id="nomeBarbeariaExibicao">Nome da Barbearia</h1>
+                <button id="btnEditarInfoBarbearia" class="botao-acao">Editar Informações</button>
+            </div>
+            
+            <!-- Imagem e descrição da barbearia (editável) -->
+            <div class="area-edicao-info">
+                <p id="enderecoBarbeariaExibicao">Endereço: Não informado</p>
+                <p id="telefoneBarbeariaExibicao">Telefone: Não informado</p>
+                <textarea id="descricaoBarbearia" placeholder="Adicione uma descrição para sua barbearia..." rows="4"></textarea>
+                <button id="btnSalvarInfoBarbearia" class="botao-acao" style="display: none;">Salvar Informações</button>
+            </div>
+            
+            <div class="divisor"></div>
+
+            <h2>Serviços Oferecidos</h2>
+            <div id="containerServicos">
+                <!-- Serviços serão listados aqui -->
+                <p>Nenhum serviço cadastrado.</p>
+            </div>
+            <button id="btnAdicionarServico" class="botao-acao">Adicionar Novo Serviço</button>
+            
+            <!-- Formulário para adicionar/editar serviço (inicialmente oculto) -->
+            <div id="formularioServico" class="formulario-oculto">
+                <h3>Adicionar/Editar Serviço</h3>
+                <input type="hidden" id="servicoId"> <!-- Para edição -->
+                <label for="nomeServico">Nome do Serviço:</label>
+                <input type="text" id="nomeServico" placeholder="Ex: Corte Masculino" required>
+                <label for="precoServico">Preço:</label>
+                <input type="number" id="precoServico" placeholder="Ex: 35.00" step="0.01" required>
+                <label for="duracaoServico">Duração (minutos):</label>
+                <input type="number" id="duracaoServico" placeholder="Ex: 30" required>
+                <button id="btnSalvarServico" class="botao-acao">Salvar Serviço</button>
+                <button id="btnCancelarServico" class="botao-acao secundario">Cancelar</button>
+            </div>
+            
+            <div class="divisor"></div>
+
+            <h2>Próximos Agendamentos</h2>
+            <div id="containerAgendamentos">
+                <!-- Agendamentos serão listados aqui -->
+                <p>Nenhum agendamento futuro.</p>
+            </div>
+        </section>
+
+        <section class="secao-horarios-pagamento">
+            <div class="tabela-direita">
+                <h1>Localização</h1>
+                <p id="localizacaoBarbearia">Rua Deputado Salvador Julianelli, <br> s/n - Barra Funda - SP, 05001-900</p>
+                <div class="linha"></div>
+                
+                <h1>Horários de Atendimento</h1>
+                <ul id="listaHorarios">
+                    <li>Segunda-feira das 10:00 as 21:00</li>
+                    <li>Terça-feira das 10:00 as 21:00</li>
+                    <li>Quarta-feira das 10:00 as 21:00</li>
+                    <li>Quinta-feira das 10:00 as 21:00</li>
+                    <li>Sexta-feira das 10:00 as 21:00</li>
+                    <li>Sábado das 09:00 as 19:00</li>
+                </ul>
+                <button id="btnEditarHorarios" class="botao-acao pequeno">Editar Horários</button>
+                <div class="linha"></div>
+                
+                <h1>Formas de Pagamento</h1>
+                <div id="containerPagamentos" class="botoes2">
+                    <button class="botao-acao pequeno">Dinheiro</button>
+                    <button class="botao-acao pequeno">Cartão de Débito</button>
+                    <button class="botao-acao pequeno">Cartão de Crédito</button>
+                </div>
+                <button id="btnEditarPagamentos" class="botao-acao pequeno">Editar Pagamentos</button>
+                <div class="linha"></div>
+                
+                <h1>Contatos</h1>
+                <h3 id="contatoPrincipal">(11) 99663-3007</h3>
+                <h3 id="contatoSecundario">4500-8822</h3>
+                <button id="btnEditarContatos" class="botao-acao pequeno">Editar Contatos</button>
+            </div>
+        </section>
+    </main>
+    
+    <script src="JS/PainelControle.js"></script>
+</body>
+</html>
+</body>
+</html>

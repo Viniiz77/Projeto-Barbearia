@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Agendamentos Barber</title>
+  <link rel="stylesheet" href="CSS/PagHome.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="CSS/assets/logo.svg" alt="Logo Agendamentos" />
+    </div>
+    <nav>
+      <a href="#" id="inicioLink">Início</a>
+      <a href="#" id="meusAgendamentosLink">Meus Agendamentos</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="search-bar">
+      <i class="fas fa-search icon"></i>
+      <input type="text" id="searchInput" placeholder="Encontre um estabelecimento" />
+    </div>
+
+    <section class="barbershop-list-section">
+      <h2>Barbearias Disponíveis</h2>
+      <div id="barbershopListContainer" class="barbershop-grid">
+        <p>Carregando Barbearias...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="JS/PagHome.js"></script>
+</body>
+</html>

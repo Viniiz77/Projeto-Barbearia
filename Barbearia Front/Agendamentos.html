@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Agendamentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Meus Agendamentos</h1>
+            <div class="header-actions">
+                <div class="filter">
+                    <label for="dateFilter">Datas</label>
+                    <select id="dateFilter">
+                        <option value="all">Todas</option>
+                        <option value="today">Hoje</option>
+                        <option value="tomorrow">Amanhã</option>
+                    </select>
+                </div>
+               
+            </div>
+        </div>
+        <div class="appointments-list">
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <h2 class="client-name">EDUADOR E O BECK MAL BOLADO</h2>
+                    <p class="service">Corte de cabelo - 09:00</p>
+                    <p class="status confirmed">Status: Confirmado</p>
+                </div>
+                <div class="appointment-actions">
+                    <button class="confirm-button" disabled>
+                        <span class="checkmark">&#10004;</span> Confirmado
+                    </button>
+                    <button class="cancel-button">Cancelar</button>
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <h2 class="client-name">VINICIUS O CERTINHO</h2>
+                    <p class="service">Corte + Barba - 09:30</p>
+                    <p class="status confirmed">Status: Confirmado</p>
+                </div>
+                <div class="appointment-actions">
+                    <button class="confirm-button" disabled>
+                        <span class="checkmark">&#10004;</span> Confirmado
+                    </button>
+                    <button class="cancel-button">Cancelar</button>
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <h2 class="client-name">MATHEUS BOIOLA</h2>
+                    <p class="service">Barba - 10:30</p>
+                    <p class="status confirmed">Status: Confirmado</p>
+                </div>
+                <div class="appointment-actions">
+                    <button class="confirm-button" disabled>
+                        <span class="checkmark">&#10004;</span> Confirmado
+                    </button>
+                    <button class="cancel-button">Cancelar</button>
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <h2 class="client-name">MISTER RATÃO</h2>
+                    <p class="service">Corte + Barba - 09:00</p>
+                    <p class="status confirmed">Status: Confirmado</p>
+                </div>
+                <div class="appointment-actions">
+                    <button class="confirm-button" disabled>
+                        <span class="checkmark">&#10004;</span> Confirmado
+                    </button>
+                    <button class="cancel-button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #2C2C2C;
+    color: #FFFFFF; 
+    line-height: 1.6;
+    display: flex; 
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+
+.header {
+    background-color: #7A7777; 
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+
+#formCadastroBarbearia { 
+    background-color: #3e3c4a; 
+    width: 90%; 
+    max-width: 600px; 
+    margin: 120px auto 30px; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+    display: flex; 
+    flex-direction: column;
+    gap: 15px; 
+}
+
+label {
+    display: block; 
+    color: #FFFFFF;
+    margin-top: 10px; 
+    font-weight: 600;
+    font-size: 1.1em; 
+}
+
+input,
+textarea { 
+    width: 100%; 
+    padding: 14px;
+    border: 1px solid #BFB9B9; 
+    border-radius: 8px; 
+    background-color: #BFB9B9; 
+    color: #333; 
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    resize: vertical; 
+    min-height: 50px; /* Altura mínima para a textarea */
+}
+
+input::placeholder,
+textarea::placeholder { 
+    color: #666; 
+}
+
+/* Estilo de foco para inputs e textareas - COMBINADOS AQUI */
+input:focus,
+textarea:focus { /* Aplica o mesmo estilo de foco a ambos */
+    border-color: #5292FF; 
+    box-shadow: 0 0 0 3px rgba(82, 146, 255, 0.5); 
+    outline: none; 
+}
+
+.submit-button {
+    background-color: #5292FF; 
+    color: white;
+    padding: 15px 25px; 
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em; 
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    align-self: flex-end; 
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.submit-button:hover {
+    background-color: #4178CC; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+        font-size: 1.5em;
+    }
+
+    #formCadastroBarbearia {
+        margin: 100px auto 20px;
+        padding: 25px;
+        width: 95%;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    .submit-button {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    #formCadastroBarbearia {
+        margin: 80px auto 15px;
+        padding: 20px;
+    }
+}

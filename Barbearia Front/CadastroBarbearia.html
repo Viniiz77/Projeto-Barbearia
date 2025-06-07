@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Agendantos Barber</title>
+  <link rel="stylesheet" href="CSS/CadastroBarbearia.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+  <h1 class="header">Bem-vindo ao Agendamento Barber</h1>
+  <form id="formCadastroBarbearia">
+    <label for="nome">Nome da Barbearia *</label>
+    <input type="text" id="nome" placeholder="Digite o nome da barbearia..." required>
+
+    <label for="enderecoCompleto">Endereço Completo *</label>
+    <input type="text" id="enderecoCompleto" placeholder="Ex: Rua das Flores, 123 - Centro, São Paulo, SP, Brasil" required>
+
+    <label for="telefone">Telefone *</label>
+    <input type="tel" id="telefone" placeholder="Ex: (99) 99999-9999" required>
+
+    <label for="descricao">Descrição da Barbearia (Opcional)</label>
+    <textarea id="descricao" placeholder="Descreva sua barbearia em poucas palavras..."></textarea>
+
+    <button type="submit" class="submit-button">Cadastrar Barbearia</button> 
+  </form>
+
+  <script src="JS/CadastroBarbearia.js"></script>
+</body>
+
+</html>

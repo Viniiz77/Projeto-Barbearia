@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Barbearia e Agendamento</title>
+    <link rel="stylesheet" href="CSS/DetalhesBarbearia.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="CSS/assets/logo.svg" alt="Logo Barbearia">
+        </div>
+        <nav>
+            <a href="/homeCliente.html" id="linkHomeCliente">Home</a>
+            <a href="#" id="linkMeusAgendamentosCliente">Meus Agendamentos</a>
+            <a href="#" id="linkSairCliente">Sair</a>
+        </nav>
+    </header>
+
+    <main class="detalhes-main">
+        <section class="info-barbearia-cliente">
+            <h1 id="nomeBarbearia">Carregando Barbearia...</h1>
+            <p id="enderecoBarbearia">Endereço: </p>
+            <p id="telefoneBarbearia">Telefone: </p>
+            <p id="descricaoBarbearia">Descrição: </p>
+            <div class="divisor"></div>
+            <h2>Serviços Disponíveis</h2>
+            <div id="containerServicosDisponiveis">
+                <!-- Serviços serão carregados aqui pelo JS -->
+                <p>Carregando serviços...</p>
+            </div>
+        </section>
+
+        <section class="secao-agendamento">
+            <h2>Agendar um Serviço</h2>
+            <form id="formAgendamento">
+                <input type="hidden" id="barbeariaIdInput">
+                <input type="hidden" id="barbeiroIdInput"> <!-- Será preenchido com o barbeiro da barbearia -->
+                <input type="hidden" id="clienteIdInput"> <!-- Será preenchido com o ID do cliente logado -->
+
+                <label for="servicoSelect">Selecione o Serviço *</label>
+                <select id="servicoSelect" required>
+                    <option value="">Carregando serviços...</option>
+                </select>
+
+                <label for="dataHoraAgendamento">Data e Hora *</label>
+                <input type="datetime-local" id="dataHoraAgendamento" required>
+
+                <button type="submit" class="botao-agendar">Confirmar Agendamento</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="JS/DetalhesBarbearia.js"></script>
+</body>
+
+</html>

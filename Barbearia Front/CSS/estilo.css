@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    z-index: 999;
+    background: url('assets/fundo_barbearia.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
+
+}
+
+a {
+ width: 100%;
+}
+
+
+section  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+background-color: rgba(0, 0, 0, 0.76);
+    
+    z-index: 0;
+}
+
+.agendamento{
+    margin-top: 50px;
+    background-color: #00000094;
+    height: 400px;
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+.agendamento h1 {
+    color: white;
+    font-size: 1.4em;
+    font-family: sans-serif;
+    width: 80%;
+
+}
+
+.agendamento input {
+margin-top: 20px ;
+width: 50%;
+padding: 10px;
+border-radius: 30px;
+background-color: #9b7d5b;
+font-size: 20px;
+cursor: pointer;
+color: white;
+}
+
+@media( min-width: 200px )and (max-width: 1750px){
+    .agendamento{
+        width: 80%;
+    }
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 20px;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: #9b7d5b;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #b89269;
+}

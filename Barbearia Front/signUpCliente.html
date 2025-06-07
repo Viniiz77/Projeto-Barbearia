@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="CSS/signUpCliente.css">
+    <title>Cadastro - Usuário</title>
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            <h2>Cadastro Cliente</h2>
+            <img src="CSS/assets/logo.svg" alt="">
+        </section>
+
+        <form id = "form" class = "form" novalidate>
+            <div class="form-content">
+                <label for="username">Nome Completo *</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-user"></i>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="Informe seu nome"
+                    required
+                  />
+                </div>
+
+                <label for="phone">Celular *</label>
+                <div class = "input-wrapper">
+                    <i class = "fa-solid fa-mobile-screen-button"></i>
+                    <input
+                    type="tel"
+                    id="phone"
+                    placeholder="(99) 99999-9999"
+                    required
+                    >
+                </div>
+
+                <label for="email">E-mail *</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input 
+                    type="email"
+                    id="email"
+                    placeholder="Informe seu email"
+                    required
+                    >
+                </div>
+
+                <label for="password">Senha (Mínimo de 4 caracteres) *</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input 
+                    type="password" 
+                    id="password"
+                    placeholder="Informe sua senha"
+                    required
+                    >
+                    <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer; margin-left: 10px;"></i>
+                </div>
+
+                <button type="submit">Cadastrar</button>
+              </div>
+        </form>
+
+        <script src="JS/signUpCliente.js"></script>
+    </div>
+</body>
+</html>
